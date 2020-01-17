@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:12.0
+    environment:
+      POSTGRES_USER: tom
+      POSTGRES_PASSWORD: tom
+    ports:
+      - 5432:5432
+    volumes:
+      - ./dbdata:/docker-entrypoint-initdb.d
+    # healthcheck:
+      # test: mysqlshow -u $$MYSQL_USER -p$$MYSQL_PASSWORD
+      # interval: 3s
+      # retries: 10
+#  prototype:
+#    image: quarkus/prototype-quarkus
+#    ports:
+#      - 8080:8080
+#    depends_on:
+#      - postgres
+#    restart: on-failure
