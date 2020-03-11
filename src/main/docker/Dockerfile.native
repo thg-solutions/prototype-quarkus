@@ -7,11 +7,12 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/prototype-quarkus .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/prototype-quarkus:v1 .
 #
-# Then run the container using:
+# Change to src/main/docker and call docker-compose:
 #
-# docker run -i --rm -p 8080:8080 quarkus/prototype-quarkus
+# cd src/main/docker
+# docker-compose up -d
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal

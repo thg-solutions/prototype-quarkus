@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 @QuarkusTest
+public
 class PeopleResourceTest {
 
     @Test
@@ -24,7 +25,7 @@ class PeopleResourceTest {
     @Test
     void findById() {
         given()
-                .when().get("/people/1")
+                .when().get("/people/2")
                 .then()
                 .statusCode(200)
                 .body("lastname", equalTo("Bond"));

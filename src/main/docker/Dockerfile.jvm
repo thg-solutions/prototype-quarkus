@@ -7,11 +7,12 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/prototype-quarkus-jvm .
+# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/prototype-quarkus-jvm:v1 .
 #
-# Then run the container using:
+# Change to src/main/docker and call docker-compose:
 #
-# docker run -i --rm -p 8080:8080 quarkus/prototype-quarkus-jvm
+# cd src/main/docker
+# docker-compose up -d
 #
 ###
 FROM fabric8/java-alpine-openjdk8-jre

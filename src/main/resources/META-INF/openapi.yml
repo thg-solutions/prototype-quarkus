@@ -1,0 +1,110 @@
+---
+openapi: 3.0.1
+info:
+  title: Generated API
+  version: "1.0"
+paths:
+  /people:
+    get:
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPerson'
+  /people/search/deriveResourceUri:
+    get:
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /people/search/findByFirstname:
+    get:
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPerson'
+  /people/search/findByLastname:
+    get:
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPerson'
+  /people/search/findByLastnameStartingWith:
+    get:
+      parameters:
+      - name: abbr
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPerson'
+  /people/{id}:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        address:
+          $ref: '#/components/schemas/Address'
+        firstname:
+          type: string
+        lastname:
+          type: string
+    ListPerson:
+      $ref: '#/components/schemas/ListPerson'
+    Address:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        city:
+          type: string
+        country:
+          type: string
+        street:
+          type: string
